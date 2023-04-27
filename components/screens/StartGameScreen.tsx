@@ -11,8 +11,14 @@ const StartGameScreen = () => {
                            autoCapitalize='none'
                            autoCorrect={false} />
             </View>
-            <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton>Confirm</PrimaryButton>
+            <View style={styles.buttonsContainer}>
+                <View style={styles.button}>
+                    <PrimaryButton>Reset</PrimaryButton>
+                </View>
+                <View style={styles.button}>
+                    <PrimaryButton>Confirm</PrimaryButton>
+                </View>
+            </View>
         </View>
     )
 };
@@ -20,14 +26,14 @@ const StartGameScreen = () => {
 const styles = StyleSheet.create({
     startGameScreen: {
         // Layout
-        marginTop: 80,
-        marginHorizontal: 20,
-        padding: 16,
+            marginTop: 80,
+            marginHorizontal: 20,
+            padding: 16,
 
         // Border
-        borderWidth: 1,
-        borderRadius: 8,
-        backgroundColor: '#72063c',
+            borderWidth: 1,
+            borderRadius: 8,
+            backgroundColor: '#72063c',
 
         // Shadow
             // iOS
@@ -41,24 +47,33 @@ const styles = StyleSheet.create({
     },
     inputContainer: { // The container that will center the input field
         // Flexbox
-        justifyContent: 'space-between',
-        alignItems: 'center',
+            justifyContent: 'space-between',
+            alignItems: 'center',
     },
     input: {
         // Layout
-        width: 50,
-        height: 50,
-        marginVertical: 8,
+            width: 50,
+            height: 50,
+            marginVertical: 8,
 
         // Border
-        borderBottomColor: '#ddb52f',
-        borderBottomWidth: 2,
+            borderBottomColor: '#ddb52f',
+            borderBottomWidth: 2,
 
         // Font
-        fontSize: 32,
-        fontWeight: 'bold',
-        color: '#ddb52f',
-        textAlign: 'center',
+            fontSize: 32,
+            fontWeight: 'bold',
+            color: '#ddb52f',
+            textAlign: 'center',
+    },
+    buttonsContainer: {
+        // Flexbox
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+    },
+    button: {
+        // Flexbox
+            flex: 1,
     }
 });
 
