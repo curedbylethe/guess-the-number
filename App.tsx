@@ -28,6 +28,9 @@ export default function App() {
         }
         setUserNumber(chosenNumber);
     }
+    const handleRestart = () => {
+        setUserNumber(0);
+    }
     return (
         <LinearGradient colors={[Colors.primary["500"], Colors.accent.yellow]} style={styles.rootScreen}>
             <ImageBackground
@@ -39,7 +42,7 @@ export default function App() {
                 <SafeAreaView style={styles.rootScreen}>
                     {
                         userNumber
-                        ? <GameScreen chosenNumber={userNumber}/>
+                        ? <GameScreen chosenNumber={userNumber} startOver={handleRestart}/>
                         : <StartGameScreen starter={confirmUserInput} />
                     }
                 </SafeAreaView>
