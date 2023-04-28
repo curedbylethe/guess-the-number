@@ -1,6 +1,8 @@
 import {TextInput, View, StyleSheet} from "react-native";
 import PrimaryButton from "../Button/PrimaryButton";
 import {useState} from "react";
+import Colors from "../../constants/colors";
+import DoubleButtons from "../Button/DoubleButtons";
 
 type StartGameScreenProps = {
     starter: (props: any) => void;
@@ -38,22 +40,12 @@ const StartGameScreen = ({ starter }: StartGameScreenProps) => {
                            value={enteredValue}
                 />
             </View>
-            <View style={styles.buttonsContainer}>
-                <View style={styles.button}>
-                    <PrimaryButton
-                        onPress={handleResetInput}
-                    >
-                        Reset
-                    </PrimaryButton>
-                </View>
-                <View style={styles.button}>
-                    <PrimaryButton
-                        onPress={handleStart}
-                    >
-                        Confirm
-                    </PrimaryButton>
-                </View>
-            </View>
+            <DoubleButtons
+                leftChildren={"Reset"}
+                rightChildren={"Confirm"}
+                leftOnPress={handleResetInput}
+                rightOnPress={handleStart}
+            />
         </View>
     )
 };
@@ -68,7 +60,9 @@ const styles = StyleSheet.create({
         // Border
             borderWidth: 1,
             borderRadius: 8,
-            backgroundColor: '#72063c',
+
+        // Color
+            backgroundColor: Colors.primary["500"],
 
         // Shadow
             // iOS
@@ -92,24 +86,15 @@ const styles = StyleSheet.create({
             marginVertical: 8,
 
         // Border
-            borderBottomColor: '#ddb52f',
+            borderBottomColor: Colors.accent.yellow,
             borderBottomWidth: 2,
 
         // Font
             fontSize: 32,
             fontWeight: 'bold',
-            color: '#ddb52f',
+            color: Colors.accent.yellow,
             textAlign: 'center',
     },
-    buttonsContainer: {
-        // Flexbox
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-    },
-    button: {
-        // Flexbox
-            flex: 1,
-    }
 });
 
 export default StartGameScreen;
