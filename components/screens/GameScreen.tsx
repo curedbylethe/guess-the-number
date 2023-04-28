@@ -3,6 +3,7 @@ import Title from "../Headers/Title";
 import {useEffect, useState} from "react";
 import GuessContainer from "../Containers/GuessContainer";
 import DoubleButtons from "../Button/DoubleButtons";
+import PrimaryButton from "../Button/PrimaryButton";
 
 
 let min = 1;
@@ -57,7 +58,7 @@ const GameScreen = ({ chosenNumber, startOver }: GameScreenProps) => {
 
     return (
         <View style={styles.screen}>
-            <Title>Game Screen</Title>
+            <Title>Opponent's Guess</Title>
             <GuessContainer>{currentGuess}</GuessContainer>
             <View>
                 <Title>Higher or Lower?</Title>
@@ -68,8 +69,9 @@ const GameScreen = ({ chosenNumber, startOver }: GameScreenProps) => {
                     rightOnPress={nextGuessHandler.bind(this, 'higher')}
                 />
             </View>
+        <PrimaryButton onPress={startOver}>Start Over</PrimaryButton>
         </View>
-    );
+);
 };
 
 const styles = StyleSheet.create({
