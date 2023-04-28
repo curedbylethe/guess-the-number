@@ -1,7 +1,31 @@
 import {TextInput, View, StyleSheet} from "react-native";
 import PrimaryButton from "../Button/PrimaryButton";
+import {useState} from "react";
 
-const StartGameScreen = () => {
+type StartGameScreenProps = {
+    starter: (props: any) => void;
+}
+
+const StartGameScreen = ({ starter }: StartGameScreenProps) => {
+    const [enteredValue, setEnteredValue] = useState<string>('');
+
+    /* This function is called when the user types in the input field.
+        * It validates the input to be numbers and sets the enteredValue state to the
+        * input value.
+     */
+    const handleInput = (inputText: string) => {
+        setEnteredValue(inputText.replace(/[^0-9]/g, ''));
+    };
+
+    const handleResetInput = () => { // This function is called when the user presses the "Reset" button.
+        setEnteredValue('');
+    };
+
+    const handleStart = () => { // This function is called when the user presses the "Confirm" button.
+        starter(enteredValue);
+        handleResetInput();
+    }
+
     return (
         <View style={styles.startGameScreen}>
             <View style={styles.inputContainer}>
@@ -9,14 +33,25 @@ const StartGameScreen = () => {
                            maxLength={2}
                            keyboardType="number-pad"
                            autoCapitalize='none'
-                           autoCorrect={false} />
+                           autoCorrect={false}
+                           onChangeText={handleInput}
+                           value={enteredValue}
+                />
             </View>
             <View style={styles.buttonsContainer}>
                 <View style={styles.button}>
-                    <PrimaryButton>Reset</PrimaryButton>
+                    <PrimaryButton
+                        onPress={handleResetInput}
+                    >
+                        Reset
+                    </PrimaryButton>
                 </View>
                 <View style={styles.button}>
-                    <PrimaryButton>Confirm</PrimaryButton>
+                    <PrimaryButton
+                        onPress={handleStart}
+                    >
+                        Confirm
+                    </PrimaryButton>
                 </View>
             </View>
         </View>
