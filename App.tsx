@@ -4,6 +4,7 @@ import {LinearGradient} from "expo-linear-gradient";
 import {useState} from "react";
 import GameScreen from "./components/screens/GameScreen";
 import Colors from "./constants/colors";
+import {StatusBar} from "expo-status-bar";
 
 export default function App() {
     const [userNumber, setUserNumber] = useState<number>(0);
@@ -32,6 +33,8 @@ export default function App() {
         setUserNumber(0);
     }
     return (
+        <>
+        <StatusBar style="light" />
         <LinearGradient colors={[Colors.primary["500"], Colors.accent.yellow]} style={styles.rootScreen}>
             <ImageBackground
                 source={require('./assets/images/background.png')}
@@ -48,6 +51,7 @@ export default function App() {
                 </SafeAreaView>
             </ImageBackground>
         </LinearGradient>
+        </>
   );
 }
 
