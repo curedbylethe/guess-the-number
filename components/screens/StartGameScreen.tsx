@@ -38,6 +38,8 @@ const StartGameScreen = ({ starter }: StartGameScreenProps) => {
                            autoCorrect={false}
                            onChangeText={handleInput}
                            value={enteredValue}
+                           placeholder={"00"}
+                           placeholderTextColor={Colors.accent.darkYellow}
                 />
             </View>
             <DoubleButtons

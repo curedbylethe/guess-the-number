@@ -6,6 +6,7 @@ type ColorsType = {
     },
     accent: {
         yellow: string,
+        darkYellow: string,
         orange: string,
     },
 }
@@ -18,6 +19,7 @@ const Colors: ColorsType = {
     },
     accent: {
         yellow: '#ddb52f',
+        darkYellow: 'rgba(221,181,47,0.50)',
         orange: '#FF6D60',
     },
 }
