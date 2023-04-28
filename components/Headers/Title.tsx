@@ -1,4 +1,5 @@
 import {StyleSheet, Text} from "react-native";
+import Colors from "../../constants/colors";
 
 type TitleProps = {
     children: React.ReactNode;
@@ -19,12 +20,12 @@ const styles = StyleSheet.create({
         // Font
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#FF6D60',
+        color: Colors.accent.orange,
         textAlign: 'center',
 
         // Border
         borderWidth: 1,
-        borderColor: '#FF6D60',
+        borderColor: Colors.accent.orange,
     }
 });
 
